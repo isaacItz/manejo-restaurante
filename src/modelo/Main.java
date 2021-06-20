@@ -78,18 +78,22 @@ public class Main {
 	}
 
 	public static void listarTiposTrabajador() {
-		String salida = "Tipos de Empleados del Restaurante: \n";
-		for (TipoTrabajador t : trabajadores.getTipos()) {
-			salida += "Tipo: ".concat(t.getTipo()).concat(" Zona: ").concat(t.getZona()).concat("\n");
-			if (t.existenBeneficios()) {
-				salida += "Beneficios: \n";
-				for (String b : t.getBeneficios()) {
-					salida += "   ·".concat(b).concat("\n");
+		if (trabajadores.hayTiposTrabajador()) {
+			String salida = "Tipos de Empleados del Restaurante: \n";
+			for (TipoTrabajador t : trabajadores.getTipos()) {
+				salida += "Tipo: ".concat(t.getTipo()).concat(" Zona: ").concat(t.getZona()).concat("\n");
+				if (t.existenBeneficios()) {
+					salida += "Beneficios: \n";
+					for (String b : t.getBeneficios()) {
+						salida += "   ·".concat(b).concat("\n");
+					}
 				}
+				salida += "\n";
 			}
-			salida += "\n";
+			Utileria.mensaje(salida);
+		} else {
+			Utileria.mensaje("Aun no hay tipos de trabajadores registrados");
 		}
-		Utileria.mensaje(salida);
 	}
 
 	public static void modificarTrabajador() {
