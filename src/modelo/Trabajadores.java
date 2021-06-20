@@ -26,6 +26,15 @@ public class Trabajadores {
 		return filtrados.toArray(new Trabajador[trabajadores.size()]);
 	}
 
+	public Trabajador getTrabajador(Trabajador tra) {
+		for (Trabajador t : trabajadores) {
+			if (t.equals(tra)) {
+				return t;
+			}
+		}
+		return null;
+	}
+
 	public boolean eliminarTrabajador(Trabajador trabajador) {
 		return trabajadores.remove(trabajador);
 	}

@@ -59,7 +59,12 @@ public class Utileria {
 	}
 
 	public static <E> E getOpcion(String mensaje, E[] lista) {
-		E showInputDialog = (E) JOptionPane.showInputDialog(null, mensaje, "Seleccione", 3, null, lista, lista[0]);
+		E showInputDialog = null;
+		do {
+			showInputDialog = (E) JOptionPane.showInputDialog(null, mensaje, "Seleccione", 3, null, lista, lista[0]);
+			if (showInputDialog == null)
+				mensaje("Seleccion no valida");
+		} while (showInputDialog == null);
 		return showInputDialog;
 	}
 
