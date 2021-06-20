@@ -20,12 +20,14 @@ public class Utileria {
 	}
 
 	public static String getCadena(String mensaje) {
-		String texto = JOptionPane.showInputDialog(mensaje);
-		if (!texto.isEmpty()) {
-			return texto;
-		}
-		mensaje("No se ha ingresado nada");
-		return null;
+		String texto = null;
+		do {
+			texto = JOptionPane.showInputDialog(mensaje);
+			if (texto == null || texto.isEmpty()) {
+				mensaje("Texto no valido");
+			}
+		} while (texto == null || texto.isEmpty());
+		return texto;
 	}
 
 	public static Character getChar(String mensaje) {

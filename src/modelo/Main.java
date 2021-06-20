@@ -36,6 +36,8 @@ public class Main {
 			case 5:
 				listarTrabajadores(null);
 				break;
+			default:
+				Utileria.mensaje("Opcion no valida");
 			}
 		} while (op != null && op != 6);
 
